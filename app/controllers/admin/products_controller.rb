@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
-
+  class ApplicationController < ActionController::Base
+    http_basic_authenticate_with :name => "user", :password => "password" 
+  end
   def index
     @products = Product.order(id: :desc).all
   end
